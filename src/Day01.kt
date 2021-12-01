@@ -22,9 +22,9 @@ fun main() {
         val intList = input.stream().map(String::toInt).toList()
         for (i in 0..intList.size) {
             if (i <= intList.size - 4) {
-                val currentMW = MeasurementWindow(intList[i], intList[i+1], intList[i+2])
-                val nextMW = MeasurementWindow(intList[i+1], intList[i+2], intList[i+3])
-                if (currentMW.sum() < nextMW.sum()) {
+                val currentMW = intList[i] + intList[i+1] + intList[i+2]
+                val nextMW = intList[i+1] + intList[i+2] + intList[i+3]
+                if (currentMW < nextMW) {
                     counter++
                 }
             }
@@ -35,13 +35,4 @@ fun main() {
     val input = readInput("Day01")
     println(part1(input))
     println(part2(input))
-}
-
-class MeasurementWindow(
-    private val a: Int,
-    private val b: Int,
-    private val c: Int
-) {
-
-    fun sum() = a + b + c
 }
