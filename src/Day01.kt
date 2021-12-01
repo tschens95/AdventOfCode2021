@@ -1,17 +1,47 @@
+import kotlin.streams.toList
+
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
+        var current = input[0].toInt()
+        var next: Int
+        var counter = 0
+        for (i in 0..input.size) {
+            if (i <= input.size-1) {
+                next = input[i].toInt()
+                if (current < next) {
+                    counter++
+                }
+                current = next
+            }
+        }
+        return counter
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        var counter = 0
+        val intList = input.stream().map(String::toInt).toList()
+        for (i in 0..intList.size) {
+            if (i <= intList.size - 4) {
+                val currentMW = MeasurementWindow(intList[i], intList[i+1], intList[i+2])
+                val nextMW = MeasurementWindow(intList[i+1], intList[i+2], intList[i+3])
+                if (currentMW.sum() < nextMW.sum()) {
+                    counter++
+                }
+            }
+        }
+        return counter
     }
-
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
 
     val input = readInput("Day01")
     println(part1(input))
     println(part2(input))
+}
+
+data class MeasurementWindow(
+    val a: Int,
+    val b: Int,
+    val c: Int
+) {
+
+    fun sum() = a + b + c
 }
