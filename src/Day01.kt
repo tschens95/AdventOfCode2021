@@ -37,7 +37,7 @@ fun main() {
     println(part2(input))
 }
 
-data class MeasurementWindow(
+class MeasurementWindow(
     val a: Int,
     val b: Int,
     val c: Int
