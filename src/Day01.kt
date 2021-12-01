@@ -38,9 +38,9 @@ fun main() {
 }
 
 class MeasurementWindow(
-    val a: Int,
-    val b: Int,
-    val c: Int
+    private val a: Int,
+    private val b: Int,
+    private val c: Int
 ) {
 
     fun sum() = a + b + c
