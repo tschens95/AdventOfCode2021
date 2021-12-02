@@ -1,3 +1,6 @@
+package day01
+
+import readInput
 import kotlin.streams.toList
 
 fun main() {
@@ -32,7 +35,7 @@ fun main() {
         return counter
     }
 
-    val input = readInput("Day01")
+    val input = readInput("day01")
     println(part1(input))
     println(part2(input))
 }

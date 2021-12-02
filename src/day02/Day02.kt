@@ -1,3 +1,7 @@
+package day02
+
+import readInput
+
 fun main() {
 
     fun part1(input: List<String>): Int  {
@@ -40,7 +44,7 @@ fun main() {
         return horizontal*depth
     }
 
-    val input = readInput("Day02")
+    val input = readInput("day02")
     println(part1(input))
     println(part2(input))
 }
