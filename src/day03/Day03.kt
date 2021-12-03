@@ -62,7 +62,6 @@ fun main() {
             } else {
                 tempRemainingO2.filter { it.substring(index).startsWith(commonBit.toString()) }
             }
-
             index++
         }
         return tempRemainingO2
