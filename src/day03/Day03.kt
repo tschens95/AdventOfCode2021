@@ -26,7 +26,7 @@ fun main() {
         return gamma.concatToString().toInt(2) * epsilon.concatToString().toInt(2)
     }
 
-    fun commonBits(input: List<String>, index: Int, most: Boolean): Int {
+    fun commonBits(input: List<String>, index: Int, most: Boolean): Char {
         val length = input.first().length
         val gammaArray = IntArray(length)
         val epsilonArray = IntArray(length)
@@ -45,11 +45,9 @@ fun main() {
             if (gammaArray[i] > epsilonArray[i]) epsilon[i] = '1' else gamma[i] = '1'
         }
         return if (most) {
-            println(gammaArray)
-            gammaArray[index]
+            gamma[index]
         } else {
-            println(epsilonArray)
-            epsilonArray[index]
+            epsilon[index]
         }
     }
 
@@ -59,7 +57,6 @@ fun main() {
         var index = 0
         while (index < length && tempRemainingO2.size > 1) {
             val commonBit = commonBits(tempRemainingO2, index, most)
-            println("CommonBit $commonBit")
             tempRemainingO2 = if (most) {
                 tempRemainingO2.filter { it.substring(index).startsWith(commonBit.toString()) }
             } else {
@@ -67,20 +64,16 @@ fun main() {
             }
 
             index++
-            println("Index $index")
-            println("List size ${tempRemainingO2.size}")
         }
         return tempRemainingO2
     }
 
     fun part2(input: List<String>): Int {
-        println("list 1")
         val resultList1 = computeShit(input, true)
-        println("list 2")
         val resultList2 = computeShit(input, false)
-        println(resultList1)
-        println(resultList2)
-        return input.size
+        val o2Value = resultList1.first().toInt(2)
+        val co2Value = resultList2.first().toInt(2)
+        return o2Value * co2Value
     }
 
 
