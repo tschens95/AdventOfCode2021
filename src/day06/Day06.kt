@@ -30,7 +30,7 @@ fun main() {
         return 0
     }
 
-    val input = File("src/day06", "Day06.txt").readText()
+    val input = File("src/day06", "Day07.txt").readText()
     println(part1(input.split(",")))
     println(part2(readInput("06")))
 }
